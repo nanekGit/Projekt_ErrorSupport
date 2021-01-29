@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Logowanie</title>
+    <link rel="stylesheet" href="/login.css">
+    <link rel="stylesheet" href="/commons.css">
+    <link rel="stylesheet" href="/commonsForm.css">
+    <script src="/userValidator.js"></script>
+</head>
+<body>
+
+<div th:replace="fragments.html :: logo"></div>
+<div th:replace="fragments.html :: menu"></div>
+
+<p class="error" id="login-err"></p>
+<p class="error" id="pass-err"></p>
+
+<form id="login-form" method="post" onsubmit="return loginValidate()">
+    <p th:if="${info}" th:text="${info}" class="error"></p>
+    <input type="text" placeholder="Login" th:field="*{userModel.login}">
+    <input type="password" placeholder="Hasło" th:field="*{userModel.pass}">
+    <input type="submit" value="Zaloguj">
+    <a href="/register" id="register-link" th:if="${!isLogged}">Zarejestruj</a>
+</form>
+
+</body>
+</html>

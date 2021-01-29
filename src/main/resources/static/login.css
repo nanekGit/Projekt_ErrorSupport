@@ -1,0 +1,12 @@
+#register-link{
+    width: 112px;
+    display: block;
+    margin: 0 auto;
+    font-size: 26px;
+    color: black;
+    transition: color 1s;
+}
+
+#register-link:hover{
+    color: red;
+}
