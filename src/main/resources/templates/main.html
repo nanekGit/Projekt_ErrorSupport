@@ -12,20 +12,19 @@
 <div th:replace="fragments.html :: menu"></div>
 
 <div id="content">
-    <div class="product-box">
-        <div class="name-box">Nazwa Produktu</div>
+    <div class="program-box">
+        <div class="name-box">Nazwa Programu</div>
         <div class="quantity-box">Ilość Sztuk</div>
     </div>
 
-    <!--
-    <th:block th:each="product : ${products}">
-        <div class="product-box">
-            <div class="name-box" th:text="${product.name}"></div>
-            <div class="quantity-box" th:text="${product.quantity}"></div>
-            <a th:if="${isLogged} and ${role=='ADMIN'}" th:href="@{/edit/{id}(id=${product.id})}" class="button" id="edit"></a>
-            <a th:if="${isLogged} and ${role=='RESUPPLIER'}" th:href="@{/resupply/{id}(id=${product.id})}" class="button" id="resupply"></a>
+
+    <th:block th:each="program : ${programs}">
+        <div class="program-box">
+            <div class="name-box" th:text="${program.name}"></div>
+            <div class="quantity-box" th:text="${program.quantity}"></div>
+            <a th:if="${isLogged} and ${role=='ADMIN'}" th:href="@{/edit/{id}(id=${program.id})}" class="button" id="edit"></a>
         </div>
-    </th:block>-->
+    </th:block>
 </div>
 
 </body>

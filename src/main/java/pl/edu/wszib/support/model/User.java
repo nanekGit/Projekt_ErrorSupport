@@ -23,6 +23,13 @@ public class User {
         this.role = role;
     }
 
+    public User(int id, String login, String pass, Role role) {
+        this.id = id;
+        this.login = login;
+        this.pass = pass;
+        this.role = role;
+    }
+
     public int getId() {
         return this.id;
     }
