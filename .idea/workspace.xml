@@ -85,13 +85,6 @@
     <property name="settings.editor.selected.configurable" value="SQL Dialects" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\User\IdeaProjects\ErrorSupport\src\main\resources\static" />
-      <recent name="C:\Users\User\IdeaProjects\ErrorSupport\src\main\resources\templates" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\User\IdeaProjects\ErrorSupport\src\main\resources\static" />
-    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="pl.edu.wszib.support.controllers" />
       <recent name="pl.edu.wszib.support.dao" />
