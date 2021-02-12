@@ -1,38 +1,12 @@
-#content{
-    margin-top: 60px;
+#not-logged{
+    margin-top: 100px;
+    font-size: 50px;
+    text-align: center;
+    color: darkred;
 }
 
-.program-box{
-    width: 80%;
-    margin: 15px auto;
-    border: 2px solid black;
-}
-
-.name-box{
-    width: 50%;
-    font-size: 30px;
-    padding: 10px;
-    display: inline-block;
-}
-
-.quantity-box{
-    font-size: 26px;
-    padding: 10px;
-    display: inline-block;
-}
-
-.button{
-    width: 50px;
-    height: 50px;
-    float: right;
-    display: inline-block;
-    background-size: contain;
-}
-
-#edit{
-    background-image: url("edit.png");
-}
-
-#resupply{
-    background-image: url("resupply.png");
+.info{
+    color: darkgreen;
+    font-size: 35px;
+    text-align: center;
 }

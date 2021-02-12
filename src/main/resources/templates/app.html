@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Błędy w Aplikacji</title>
+    <link rel="stylesheet" href="/app.css">
+    <link rel="stylesheet" href="/commons.css">
+</head>
+<body>
+
+<div th:replace="fragments.html :: logo"></div>
+<div th:replace="fragments.html :: menu"></div>
+
+<div id="content">
+    <div class="program-box">
+        <div class="name-box" th:text="${app.name}"></div>
+        <div class="type-box" th:text="${app.type}"></div>
+        <a th:href="@{/reportError/{id}(id=${app.id})}" class="button" id="reportError"></a>
+        <hr>
+        <div class="description-box" th:text="${app.description}"></div>
+    </div>
+    <p th:if="${info}" th:text="${info}" class="info"></p>
+
+    <div id="errors" class="error-box">
+        <div class="title-box">Title</div>
+        <hr>
+        <div class="user-box">User's Login</div>
+        <div class="state-box">Error's State</div>
+    </div>
+
+    <th:block th:each="error : ${errors}">
+        <div class="error-box">
+            <div class="title-box" th:text="${error.title}"></div>
+            <hr>
+            <div th:if="${error.user}" class="user-box" th:text="${error.user.login}"></div>
+            <div th:if="${error.user == null}" class="user-box">Deleted User</div>
+            <div class="state-box" th:text="${error.state}"></div>
+            <a th:if="${role}=='ADMIN'" th:href="@{/editError/{id}(id=${error.id})}" class="button" id="edit"></a>
+            <hr>
+            <div class="description-box" th:text="${error.description}"></div>
+        </div>
+    </th:block>
+</div>
+
+</body>
+</html>

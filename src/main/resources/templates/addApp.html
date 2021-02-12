@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodawanie Aplikacji</title>
+    <link rel="stylesheet" href="/addApp.css">
+    <link rel="stylesheet" href="/commons.css">
+    <link rel="stylesheet" href="/commonsForm.css">
+    <script src="/appValidator.js"></script>
+</head>
+<body>
+
+<div th:replace="fragments.html :: logo"></div>
+<div th:replace="fragments.html :: menu"></div>
+
+<p class="error" id="name-err"></p>
+<p class="error" id="type-err"></p>
+<p class="error" id="description-err"></p>
+
+<div id="content">
+    <form id="app-add-form" method="post" onsubmit="return appValidate()">
+        <p th:if="${info}" th:text="${info}" class="error"></p>
+        <input id="name" placeholder="App's Name" type="text" th:field="*{app.name}">
+        <input id="type" placeholder="App's Type" type="text" th:field="*{app.type}">
+        <textarea id="description" placeholder="App's Description" th:field="${app.description}"></textarea>
+        <input type="submit">
+    </form>
+</div>
+
+</body>
+</html>

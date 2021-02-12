@@ -8,6 +8,10 @@ body{
     background-color: #777;
 }
 
+#content{
+    margin-top: 60px;
+}
+
 #logo{
     width: 1000px;
     height: 200px;
@@ -34,4 +38,31 @@ a{
 
 .menu-button:hover{
     color: red;
+}
+
+.program-box{
+    width: 80%;
+    margin: 15px auto;
+    border: 2px solid black;
+}
+
+.name-box{
+    color: blue;
+    width: 70%;
+    font-size: 35px;
+    padding: 10px;
+    display: inline-block;
+}
+
+.type-box{
+    color: brown;
+    font-size: 30px;
+    padding: 10px;
+    display: inline-block;
+}
+
+.description-box{
+    color: darkblue;
+    font-size: 25px;
+    padding: 10px;
 }

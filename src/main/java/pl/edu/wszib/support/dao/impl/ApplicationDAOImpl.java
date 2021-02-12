@@ -6,54 +6,51 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import pl.edu.wszib.support.dao.iUserDAO;
-import pl.edu.wszib.support.model.User;
+import pl.edu.wszib.support.dao.iApplicationDAO;
+import pl.edu.wszib.support.model.Application;
 
 import javax.persistence.NoResultException;
+import java.util.List;
 
 @Repository
-public class UserDAOImpl implements iUserDAO {
+public class ApplicationDAOImpl implements iApplicationDAO {
 
     @Autowired
     SessionFactory sessionFactory;
 
+
     @Override
-    public User getUserByLogin(String login) {
+    public List<Application> getAllApplications() {
         Session session = this.sessionFactory.openSession();
-        Query<User> query = session.createQuery("FROM pl.edu.wszib.support.model.User WHERE login = :login");
-        query.setParameter("login", login);
-        User result = null;
-        try{
-            result = query.getSingleResult();
-        }catch (NoResultException e){
-            //User not found
-        }
+        Query<Application> query = session.createQuery("FROM pl.edu.wszib.support.model.Application");
+        List<Application> apps = query.getResultList();
         session.close();
-        return result;
+        return apps;
     }
 
     @Override
-    public User getUserByID(int id) {
+    public Application getApplicationByID(int id) {
         Session session = this.sessionFactory.openSession();
-        Query<User> query = session.createQuery("FROM pl.edu.wszib.support.model.User WHERE id = :id");
+        Query<Application> query = session.createQuery("FROM pl.edu.wszib.support.model.Application WHERE id = :id");
         query.setParameter("id", id);
-        User result = null;
+        Application result = null;
         try{
             result = query.getSingleResult();
         }catch (NoResultException e){
-            //User not found
+            //Application not found
         }
         session.close();
         return result;
     }
 
     @Override
-    public boolean persistUser(User user) {
+    public boolean persistApplication(Application app) {
         Session session = this.sessionFactory.openSession();
+        System.out.println(app);
         Transaction tx = null;
         try{
             tx = session.beginTransaction();
-            session.save(user);
+            session.save(app);
             tx.commit();
             return true;
         } catch (Exception e) {

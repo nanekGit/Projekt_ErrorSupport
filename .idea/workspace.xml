@@ -5,11 +5,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ba72f4f-5aa3-4bd9-bea6-549390c7ede9" name="Default Changelist" comment="Pierwszy Commit&#10;Stworzenie struktury aplikacji oraz dodanie User'a, rejestracji oraz logowania">
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/edu/wszib/support/controllers/CommonController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/pl/edu/wszib/support/services/impl/UserServiceImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/edu/wszib/support/controllers/AdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/edu/wszib/support/dao/iApplicationDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/edu/wszib/support/dao/iErrorDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/edu/wszib/support/dao/impl/ApplicationDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/edu/wszib/support/dao/impl/ErrorDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/edu/wszib/support/model/Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/edu/wszib/support/model/Error.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/edu/wszib/support/services/iApplicationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/edu/wszib/support/services/iErrorService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/edu/wszib/support/services/impl/ApplicationServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/edu/wszib/support/services/impl/ErrorServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/addApp.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/app.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/appValidator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/editError.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/errorValidator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/reportError.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/reportError.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/addApp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/app.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/editError.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/reportError.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/493a9c60-db58-4e7a-8fdd-7a16a7f6f95d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/493a9c60-db58-4e7a-8fdd-7a16a7f6f95d.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4aa84bd2-dc38-4baa-9762-ee760c2fdc8d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4aa84bd2-dc38-4baa-9762-ee760c2fdc8d.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/wszib/support/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/wszib/support/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/wszib/support/controllers/CommonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/wszib/support/controllers/CommonController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/wszib/support/dao/iUserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/wszib/support/dao/iUserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/wszib/support/dao/impl/UserDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/wszib/support/dao/impl/UserDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/wszib/support/services/iUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/wszib/support/services/iUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/wszib/support/services/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/wszib/support/services/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/commons.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/commons.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/commonsForm.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/commonsForm.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/resupply.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,8 +51,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -38,6 +69,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -46,11 +81,22 @@
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="SQL Dialects" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\IdeaProjects\ErrorSupport\src\main\resources\static" />
+      <recent name="C:\Users\User\IdeaProjects\ErrorSupport\src\main\resources\templates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\IdeaProjects\ErrorSupport\src\main\resources\static" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="pl.edu.wszib.support.controllers" />
+      <recent name="pl.edu.wszib.support.dao" />
+      <recent name="pl.edu.wszib.support.services" />
+      <recent name="pl.edu.wszib.support.dao.impl" />
       <recent name="pl.edu.wszib.support.services.impl" />
     </key>
   </component>
@@ -86,7 +132,10 @@
       <workItem from="1611939306606" duration="644000" />
       <workItem from="1611941413605" duration="317000" />
       <workItem from="1611941745662" duration="1008000" />
-      <workItem from="1611943648249" duration="797000" />
+      <workItem from="1611943648249" duration="861000" />
+      <workItem from="1613062900398" duration="597000" />
+      <workItem from="1613063787994" duration="1232000" />
+      <workItem from="1613123798671" duration="19891000" />
     </task>
     <task id="LOCAL-00001" summary="Pierwszy Commit&#10;Stworzenie struktury aplikacji oraz dodanie User'a, rejestracji oraz logowania">
       <created>1611943826549</created>
@@ -95,7 +144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611943826550</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Pierwszy Commit&#10;Stworzenie struktury aplikacji oraz dodanie User'a, rejestracji oraz logowania">
+      <created>1611944513865</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1611944513865</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -111,6 +167,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Pierwszy Commit&#10;Stworzenie struktury aplikacji oraz dodanie User'a, rejestracji oraz logowania" />

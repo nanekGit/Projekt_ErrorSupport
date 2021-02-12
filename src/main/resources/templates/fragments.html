@@ -12,7 +12,7 @@
 
 <div th:fragment="menu" id="menu">
     <a href="/main" class="menu-button">Strona Główna</a>
-    <a href="/add" class="menu-button" th:if="${isLogged} and ${role=='ADMIN'}">Dodaj Produkt</a>
+    <a href="/addApp" class="menu-button" th:if="${isLogged} and ${role=='ADMIN'}">Dodaj Aplikacje</a>
     <a href="/login" class="menu-button" th:if="${!isLogged}">Zaloguj</a>
     <a href="/logout" class="menu-button" th:if="${isLogged}">Wyloguj</a>
 </div>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Zgłaszanie Błędu</title>
+    <link rel="stylesheet" href="/reportError.css">
+    <link rel="stylesheet" href="/commons.css">
+    <link rel="stylesheet" href="/commonsForm.css">
+    <script src="/errorValidator.js"></script>
+</head>
+<body>
+
+<div th:replace="fragments.html :: logo"></div>
+<div th:replace="fragments.html :: menu"></div>
+
+<p class="error" id="title-err"></p>
+<p class="error" id="description-err"></p>
+
+<div id="content">
+    <div class="program-box">
+        <div class="name-box" th:text="${app.name}"></div>
+        <div class="type-box" th:text="${app.type}"></div>
+        <hr>
+        <div class="description-box" th:text="${app.description}"></div>
+    </div>
+
+    <form id="error-form" method="post" onsubmit="return reportErrorValidate()">
+        <p th:if="${info}" th:text="${info}" class="error"></p>
+        <input id="title" placeholder="Error's Title" type="text" th:field="*{error.title}">
+        <textarea id="description" placeholder="Error's Description" th:field="*{error.description}"></textarea>
+        <input type="submit">
+    </form>
+</div>
+
+</body>
+</html>

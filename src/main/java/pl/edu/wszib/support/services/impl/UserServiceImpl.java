@@ -27,6 +27,11 @@ public class UserServiceImpl implements iUserService {
     }
 
     @Override
+    public User getUserByID(int id) {
+        return this.userDAO.getUserByID(id);
+    }
+
+    @Override
     public void authenticate(User user) {
         User userFromDB = userDAO.getUserByLogin(user.getLogin());
         if(userFromDB!=null && userFromDB.getPass().equals(user.getPass())) {

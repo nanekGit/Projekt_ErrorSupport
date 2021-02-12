@@ -35,6 +35,8 @@
 
         <!-- Wygląd tabelek -->
         <mapping class = "pl.edu.wszib.support.model.User"/>
+        <mapping class = "pl.edu.wszib.support.model.Application"/>
+        <mapping class = "pl.edu.wszib.support.model.Error"/>
 
     </session-factory>
 </hibernate-configuration>

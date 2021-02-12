@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Magazyn</title>
+    <title>Aplikacje</title>
     <link rel="stylesheet" href="/main.css">
     <link rel="stylesheet" href="/commons.css">
 </head>
@@ -11,20 +11,27 @@
 <div th:replace="fragments.html :: logo"></div>
 <div th:replace="fragments.html :: menu"></div>
 
-<div id="content">
+<div th:if="${isLogged}" id="content">
+    <p th:if="${info}" th:text="${info}" class="info"></p>
     <div class="program-box">
-        <div class="name-box">Nazwa Programu</div>
-        <div class="quantity-box">Ilość Sztuk</div>
+        <div class="name-box">Nazwa Aplikacji</div>
+        <div class="type-box">Typ Aplikacji</div>
     </div>
 
-
-    <th:block th:each="program : ${programs}">
-        <div class="program-box">
-            <div class="name-box" th:text="${program.name}"></div>
-            <div class="quantity-box" th:text="${program.quantity}"></div>
-            <a th:if="${isLogged} and ${role=='ADMIN'}" th:href="@{/edit/{id}(id=${program.id})}" class="button" id="edit"></a>
-        </div>
+    <th:block th:each="app : ${apps}">
+        <a th:href="@{/app/{id}(id=${app.id})}">
+            <div class="program-box">
+                <div class="name-box" th:text="${app.name}"></div>
+                <div class="type-box" th:text="${app.type}"></div>
+                <hr>
+                <div class="description-box" th:text="${app.description}"></div>
+            </div>
+        </a>
     </th:block>
+</div>
+
+<div th:if="${!isLogged}" id="not-logged">
+    Zaloguj się aby zobaczyć dostępne aplikacje.
 </div>
 
 </body>

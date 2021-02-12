@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edycja Stanu Błędu</title>
+    <link rel="stylesheet" href="/editError.css">
+    <link rel="stylesheet" href="/commons.css">
+    <link rel="stylesheet" href="/commonsForm.css">
+    <script src="/errorValidator.js"></script>
+</head>
+<body>
+
+<div th:replace="fragments.html :: logo"></div>
+<div th:replace="fragments.html :: menu"></div>
+
+<p class="error" id="state-err"></p>
+
+<div id="content">
+    <form id="error-form" method="post" onsubmit="return stateValidate()">
+        <p th:if="${info}" th:text="${info}" class="error"></p>
+        <input id="title" type="text" th:field="${error.title}" readonly>
+        <select id="state" th:field="${error.state}">
+            <option th:value="NEW" th:text="NEW" th:selected="${error.state=='NEW'}"></option>
+            <option th:value="ACTIVE" th:text="ACTIVE" th:selected="${error.state=='ACTIVE'}"></option>
+            <option th:value="RESOLVED" th:text="RESOLVED" th:selected="${error.state=='RESOLVED'}"></option>
+        </select>
+        <textarea id="description" th:field="${error.description}" readonly></textarea>
+        <input type="submit">
+    </form>
+</div>
+
+</body>
+</html>

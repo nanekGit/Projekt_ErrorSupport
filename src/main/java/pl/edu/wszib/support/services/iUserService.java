@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 public interface iUserService {
 
     Pattern getLengthPattern();
+    User getUserByID(int id);
     void authenticate(User user);
     void logout();
     boolean register(RegistrationModel registrationModel);

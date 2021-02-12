@@ -1,0 +1,60 @@
+#errors{
+    margin-top: 100px;
+}
+
+.error-box{
+    width: 80%;
+    margin: 20px auto;
+    border: 2px solid black;
+}
+
+.title-box{
+    color: red;
+    font-size: 35px;
+    padding: 10px;
+    display: inline-block;
+}
+
+.user-box{
+    color: black;
+    width: 70%;
+    font-size: 30px;
+    padding: 10px;
+    display: inline-block;
+}
+
+.state-box{
+    color: black;
+    font-size: 30px;
+    padding: 10px;
+    display: inline-block;
+}
+
+.description-box{
+    color: darkblue;
+    font-size: 25px;
+    padding: 10px;
+}
+
+.button{
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+    float: right;
+    display: inline-block;
+    background-size: contain;
+}
+
+#edit{
+    background-image: url("edit.png");
+}
+
+#reportError{
+    background-image: url("reportError.png");
+}
+
+.info{
+    color: darkgreen;
+    font-size: 35px;
+    text-align: center;
+}
