@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Rejestracja</title>
+    <title>Register</title>
     <link rel="stylesheet" href="/register.css">
     <link rel="stylesheet" href="/commons.css">
     <link rel="stylesheet" href="/commonsForm.css">
@@ -21,9 +21,9 @@
 <form id="register-form" method="post" onsubmit="return registerValidate()">
     <p th:if="${info}" th:text="${info}" class="error"></p>
     <input id="login" type="text" placeholder="Login" th:field="*{RegistrationModel.login}">
-    <input id="pass" type="password" placeholder="Hasło" th:field="*{RegistrationModel.pass}">
-    <input id="pass2" type="password" placeholder="Powtórz Hasło" th:field="*{RegistrationModel.pass2}">
-    <input type="submit" value="Zarejestruj">
+    <input id="pass" type="password" placeholder="Password" th:field="*{RegistrationModel.pass}">
+    <input id="pass2" type="password" placeholder="Repeat Password" th:field="*{RegistrationModel.pass2}">
+    <input type="submit" value="Register">
 </form>
 
 </body>

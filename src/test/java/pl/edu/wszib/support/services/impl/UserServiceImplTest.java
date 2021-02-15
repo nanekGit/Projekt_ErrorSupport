@@ -12,6 +12,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import pl.edu.wszib.support.configuration.AppConfigurationTest;
 import pl.edu.wszib.support.dao.iUserDAO;
+import pl.edu.wszib.support.dao.iErrorDAO;
+import pl.edu.wszib.support.dao.iApplicationDAO;
 import pl.edu.wszib.support.model.User;
 import pl.edu.wszib.support.model.view.RegistrationModel;
 import pl.edu.wszib.support.services.iUserService;
@@ -30,6 +32,12 @@ public class UserServiceImplTest {
     @MockBean
     iUserDAO userDAO;
 
+    @MockBean
+    iErrorDAO errorDAO;
+
+    @MockBean
+    iApplicationDAO appDAO;
+
     @Resource
     SessionObject sessionObject;
 
@@ -42,22 +50,28 @@ public class UserServiceImplTest {
 
         Mockito.when(this.userDAO.getUserByLogin("Karol")).thenReturn(null);
         Mockito.when(this.userDAO.persistUser(ArgumentMatchers.any())).thenReturn(true);
-        boolean result = userService.register(registrationModel);
+        int result = userService.register(registrationModel);
+        int expected = 0; //Code responsible for success
 
-        Assert.assertTrue(result);
+        Assert.assertEquals(expected, result);
     }
 
     @Test
-    public void testRegisterIncorrectLogin(){
+    public void testRegisterLoginTaken(){
         RegistrationModel registrationModel = new RegistrationModel();
         registrationModel.setLogin("Karol1");
         registrationModel.setPass("Karol1");
         registrationModel.setPass2("Karol1");
 
         Mockito.when(this.userDAO.getUserByLogin("Karol1")).thenReturn(new User());
-        boolean result = userService.register(registrationModel);
+        int result = userService.register(registrationModel);
+        int expected = 1; //Code responsible for login taken
 
-        Assert.assertFalse(result);
+        Assert.assertEquals(expected, result);
+    }
+
+    private User generateUser(){
+        return new User(5, "mateusz", "mateusz", User.Role.USER);
     }
 
     @Test
@@ -73,12 +87,8 @@ public class UserServiceImplTest {
         Assert.assertNotNull(this.sessionObject.getLoggedUser());
     }
 
-    private User generateUser(){
-        return new User(5, "mateusz", "mateusz", User.Role.USER);
-    }
-
     @Test
-    public void testInCorrectAuthenticate(){
+    public void testIncorrectAuthenticate(){
         User user = new User();
         user.setLogin("mateusz1");
         user.setPass("mateusz1");
@@ -102,6 +112,4 @@ public class UserServiceImplTest {
 
         Assert.assertNull(this.sessionObject.getLoggedUser());
     }
-
-
 }

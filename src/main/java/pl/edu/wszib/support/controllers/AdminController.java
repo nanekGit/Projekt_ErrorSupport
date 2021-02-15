@@ -48,14 +48,21 @@ public class AdminController {
         if(!this.appService.getPatternForLength(5).matcher(app.getName()).matches()||
                 !this.appService.getPatternForLength(3).matcher(app.getType()).matches() ||
                 !this.appService.getPatternForLength(20).matcher(app.getDescription()).matches()){
-            this.sessionObject.setInfo("Validation failed.");
+            this.sessionObject.setInfo("Validation failed");
             return "redirect:http://localhost:8080/addApp";
         }
-        if(this.appService.addApplication(app)){
-            this.sessionObject.setInfo("Succesfully added new application");
+        int result = this.appService.addApplication(app);
+        if(result==0){
+            this.sessionObject.setInfo("Successfully added new application");
             return "redirect:/main";
+        }else if(result==1) {
+            this.sessionObject.setInfo("Application with this name already exists in database");
+            return "redirect:http://localhost:8080/addApp";
+        }else if(result==2) {
+            this.sessionObject.setInfo("Failed to add new application due to database error");
+            return "redirect:http://localhost:8080/addApp";
         }else{
-            this.sessionObject.setInfo("Failed to add new application due to error");
+            this.sessionObject.setInfo("Unknown Error");
             return "redirect:http://localhost:8080/addApp";
         }
     }
@@ -85,11 +92,10 @@ public class AdminController {
             error.setId(id);
         }
         if(this.errorService.updateErrorState(error)){
-            this.sessionObject.setInfo("Error's state has been updated");
+            this.sessionObject.setInfo("Successfully updated Error's State");
             return "redirect:/app/"+this.errorService.getErrorByID(id).getApp().getId();
-        }else{
-            this.sessionObject.setInfo("Failed to update Error's state due to error");
-            return "redirect:/editError/"+id;
         }
+        this.sessionObject.setInfo("Failed to update Error's state due to database error");
+        return "redirect:/editError/"+id;
     }
 }

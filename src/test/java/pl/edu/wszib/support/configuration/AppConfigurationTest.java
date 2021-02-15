@@ -9,4 +9,5 @@ import org.springframework.context.annotation.Configuration;
         "pl.edu.wszib.support.session"
 })
 public class AppConfigurationTest {
+
 }

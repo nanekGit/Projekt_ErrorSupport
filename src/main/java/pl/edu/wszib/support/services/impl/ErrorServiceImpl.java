@@ -13,8 +13,8 @@ import java.util.regex.Pattern;
 @Service
 public class ErrorServiceImpl implements iErrorService {
 
-    private final Pattern lengthPattern5 = Pattern.compile("[A-Za-z0-9._-]{5}.*");
-    private final Pattern lengthPattern20 = Pattern.compile("[A-Za-z0-9._-]{20}.*");
+    private final Pattern lengthPattern5 = Pattern.compile("[ '`\\p{L}\\p{M}0-9_.-]{5}.*");
+    private final Pattern lengthPattern20 = Pattern.compile("[ '`\\p{L}\\p{M}0-9_.-]{20}.*");
 
     @Autowired
     iErrorDAO errorDAO;
@@ -45,6 +45,7 @@ public class ErrorServiceImpl implements iErrorService {
 
     @Override
     public boolean addError(Error error) {
+        //Multiple errors with the same title are allowed
         return this.errorDAO.persistError(error);
     }
 

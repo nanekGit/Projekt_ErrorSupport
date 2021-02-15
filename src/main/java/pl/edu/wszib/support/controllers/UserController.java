@@ -44,12 +44,12 @@ public class UserController {
 
         if(!loginMatcher.matches() || !passMatcher.matches())
         {
-            this.sessionObject.setInfo("Błąd Validacji.");
+            this.sessionObject.setInfo("Validation failed");
             return "redirect:http://localhost:8080/login";
         }
         this.userService.authenticate(user);
         if(!this.sessionObject.isLogged()){
-            this.sessionObject.setInfo("Błędny login lub hasło.");
+            this.sessionObject.setInfo("Wrong login or password");
             return "redirect:http://localhost:8080/login";
         }
         return "redirect:/main";
@@ -88,13 +88,22 @@ public class UserController {
                 !passMatcher.matches() ||
                 !pass2Matcher.matches())
         {
-            this.sessionObject.setInfo("Błąd Validacji.");
+            this.sessionObject.setInfo("Validation failed");
             return "redirect:http://localhost:8080/register";
         }
-        if(!this.userService.register(registrationModel)){
-            this.sessionObject.setInfo("Login Zajęty.");
+        int result = this.userService.register(registrationModel);
+        if(result==0){
+            this.sessionObject.setInfo("Successfully registered new account");
+            return "redirect:http://localhost:8080/login";
+        }else if(result==1) {
+            this.sessionObject.setInfo("Account with this login already exists in database");
+            return "redirect:http://localhost:8080/register";
+        }else if(result==2) {
+            this.sessionObject.setInfo("Failed to register new account due to database error");
+            return "redirect:http://localhost:8080/register";
+        }else{
+            this.sessionObject.setInfo("Unknown Error");
             return "redirect:http://localhost:8080/register";
         }
-        return "redirect:http://localhost:8080/login";
     }
 }

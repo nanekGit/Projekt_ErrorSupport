@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Aplikacje</title>
+    <title>Applications</title>
     <link rel="stylesheet" href="/main.css">
     <link rel="stylesheet" href="/commons.css">
 </head>
@@ -14,8 +14,8 @@
 <div th:if="${isLogged}" id="content">
     <p th:if="${info}" th:text="${info}" class="info"></p>
     <div class="program-box">
-        <div class="name-box">Nazwa Aplikacji</div>
-        <div class="type-box">Typ Aplikacji</div>
+        <div class="name-box">App's Name</div>
+        <div class="type-box">App's Type</div>
     </div>
 
     <th:block th:each="app : ${apps}">
@@ -31,7 +31,7 @@
 </div>
 
 <div th:if="${!isLogged}" id="not-logged">
-    Zaloguj się aby zobaczyć dostępne aplikacje.
+    Login in order to see list of applications.
 </div>
 
 </body>

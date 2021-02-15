@@ -8,5 +8,6 @@ public interface iApplicationDAO {
 
     List<Application> getAllApplications();
     Application getApplicationByID(int id);
+    Application getApplicationByName(String name);
     boolean persistApplication(Application app);
 }

@@ -3,7 +3,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Nie widzisz tego</title>
+    <title>Can't be seen</title>
     <link rel="stylesheet" href="/commons.css">
 </head>
 <body>
@@ -11,10 +11,12 @@
 <img th:fragment="logo" id="logo" src="/logo.png" alt="">
 
 <div th:fragment="menu" id="menu">
-    <a href="/main" class="menu-button">Strona Główna</a>
-    <a href="/addApp" class="menu-button" th:if="${isLogged} and ${role=='ADMIN'}">Dodaj Aplikacje</a>
-    <a href="/login" class="menu-button" th:if="${!isLogged}">Zaloguj</a>
-    <a href="/logout" class="menu-button" th:if="${isLogged}">Wyloguj</a>
+    <a href="/main" class="menu-button">Main Page</a>
+    <p class="separator"> | </p>
+    <a href="/addApp" class="menu-button" th:if="${isLogged} and ${role=='ADMIN'}">Add Application</a>
+    <p class="separator" th:if="${isLogged} and ${role=='ADMIN'}"> | </p>
+    <a href="/login" class="menu-button" th:if="${!isLogged}">Login</a>
+    <a href="/logout" class="menu-button" th:if="${isLogged}">Logout</a>
 </div>
 
 </body>

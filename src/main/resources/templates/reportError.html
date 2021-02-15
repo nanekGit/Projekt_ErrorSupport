@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Zgłaszanie Błędu</title>
+    <title>Report Error</title>
     <link rel="stylesheet" href="/reportError.css">
     <link rel="stylesheet" href="/commons.css">
     <link rel="stylesheet" href="/commonsForm.css">
@@ -17,18 +17,20 @@
 <p class="error" id="description-err"></p>
 
 <div id="content">
-    <div class="program-box">
-        <div class="name-box" th:text="${app.name}"></div>
-        <div class="type-box" th:text="${app.type}"></div>
-        <hr>
-        <div class="description-box" th:text="${app.description}"></div>
-    </div>
+    <a th:href="@{/app/{id}(id=${app.id})}">
+        <div class="program-box">
+            <div class="name-box" th:text="${app.name}"></div>
+            <div class="type-box" th:text="${app.type}"></div>
+            <hr>
+            <div class="description-box" th:text="${app.description}"></div>
+        </div>
+    </a>
 
     <form id="error-form" method="post" onsubmit="return reportErrorValidate()">
         <p th:if="${info}" th:text="${info}" class="error"></p>
         <input id="title" placeholder="Error's Title" type="text" th:field="*{error.title}">
         <textarea id="description" placeholder="Error's Description" th:field="*{error.description}"></textarea>
-        <input type="submit">
+        <input type="submit" value="Report Error">
     </form>
 </div>
 

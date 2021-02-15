@@ -10,5 +10,6 @@ public interface iApplicationService {
     Pattern getPatternForLength(int length);
     List<Application> getAllApplications();
     Application getApplicationByID(int id);
-    boolean addApplication(Application app);
+    Application getApplicationByName(String name);
+    int addApplication(Application app);
 }

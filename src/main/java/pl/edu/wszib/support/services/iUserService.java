@@ -11,5 +11,5 @@ public interface iUserService {
     User getUserByID(int id);
     void authenticate(User user);
     void logout();
-    boolean register(RegistrationModel registrationModel);
+    int register(RegistrationModel registrationModel);
 }

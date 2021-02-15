@@ -22,16 +22,6 @@ public class Application {
         this.description = description;
     }
 
-    @Override
-    public String toString() {
-        return "Application{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", type='" + type + '\'' +
-                ", description='" + description + '\'' +
-                '}';
-    }
-
     public int getId() {
         return id;
     }

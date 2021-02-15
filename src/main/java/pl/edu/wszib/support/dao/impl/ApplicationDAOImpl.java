@@ -44,6 +44,21 @@ public class ApplicationDAOImpl implements iApplicationDAO {
     }
 
     @Override
+    public Application getApplicationByName(String name) {
+        Session session = this.sessionFactory.openSession();
+        Query<Application> query = session.createQuery("FROM pl.edu.wszib.support.model.Application WHERE name = :name");
+        query.setParameter("name", name);
+        Application result = null;
+        try{
+            result = query.getSingleResult();
+        }catch (NoResultException e){
+            //Application not found
+        }
+        session.close();
+        return result;
+    }
+
+    @Override
     public boolean persistApplication(Application app) {
         Session session = this.sessionFactory.openSession();
         System.out.println(app);

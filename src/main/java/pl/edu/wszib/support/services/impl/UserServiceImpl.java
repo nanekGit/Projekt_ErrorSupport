@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 @Service
 public class UserServiceImpl implements iUserService {
 
-    private final Pattern lengthPattern = Pattern.compile("[A-Za-z0-9._-]{5}.*");
+    private final Pattern lengthPattern = Pattern.compile("[\\p{L}\\p{M}0-9_.-]{5}.*");
 
     @Autowired
     iUserDAO userDAO;
@@ -45,11 +45,14 @@ public class UserServiceImpl implements iUserService {
     }
 
     @Override
-    public boolean register(RegistrationModel registrationModel) {
+    public int register(RegistrationModel registrationModel) {
         if(this.userDAO.getUserByLogin(registrationModel.getLogin()) != null){
-            return false;
+            return 1;
         }
         User newUser = new User(registrationModel.getLogin(),registrationModel.getPass(), User.Role.USER);
-        return this.userDAO.persistUser(newUser);
+        if(this.userDAO.persistUser(newUser)){
+            return 0;
+        }
+        return 2;
     }
 }

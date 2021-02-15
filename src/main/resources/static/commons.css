@@ -29,11 +29,12 @@ a{
     text-decoration: none;
 }
 
-.menu-button{
+.menu-button, .separator{
     font-size: 50px;
     color: black;
     margin: 15px 25px;
     transition: color 1s;
+    display: inline-block;
 }
 
 .menu-button:hover{

@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Dodawanie Aplikacji</title>
+    <title>Add New Application</title>
     <link rel="stylesheet" href="/addApp.css">
     <link rel="stylesheet" href="/commons.css">
     <link rel="stylesheet" href="/commonsForm.css">
@@ -23,7 +23,7 @@
         <input id="name" placeholder="App's Name" type="text" th:field="*{app.name}">
         <input id="type" placeholder="App's Type" type="text" th:field="*{app.type}">
         <textarea id="description" placeholder="App's Description" th:field="${app.description}"></textarea>
-        <input type="submit">
+        <input type="submit" value="Add Apllication">
     </form>
 </div>
 

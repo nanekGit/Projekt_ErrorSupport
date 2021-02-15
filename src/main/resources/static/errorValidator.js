@@ -42,9 +42,9 @@ function reportErrorValidate(){
 }
 
 function lengthValidate(text, length){
-    var regex = new RegExp(/[A-Za-z0-9._-]{5}.*/);
+    var regex = new RegExp(/[\s'`\wąćęłńóśźż.-]{5}.*/);
     if(length===20){
-        regex = new RegExp(/[A-Za-z0-9._-]{20}.*/);
+        regex = new RegExp(/[\s'`\wąćęłńóśźż.-]{20}.*/);
     }
 
     return regex.test(text);

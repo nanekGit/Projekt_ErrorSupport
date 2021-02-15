@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import pl.edu.wszib.support.dao.iApplicationDAO;
 import pl.edu.wszib.support.model.Application;
 import pl.edu.wszib.support.services.iApplicationService;
+import pl.edu.wszib.support.session.SessionObject;
 
 import java.util.List;
 import java.util.regex.Pattern;
@@ -12,13 +13,12 @@ import java.util.regex.Pattern;
 @Service
 public class ApplicationServiceImpl implements iApplicationService {
 
-    private final Pattern lengthPattern3 = Pattern.compile("[A-Za-z0-9._-]{3}.*");
-    private final Pattern lengthPattern5 = Pattern.compile("[A-Za-z0-9._-]{5}.*");
-    private final Pattern lengthPattern20 = Pattern.compile("[A-Za-z0-9._-]{20}.*");
+    private final Pattern lengthPattern3 = Pattern.compile("[ '`\\p{L}\\p{M}0-9_.-]{3}.*");
+    private final Pattern lengthPattern5 = Pattern.compile("[ '`\\p{L}\\p{M}0-9_.-]{5}.*");
+    private final Pattern lengthPattern20 = Pattern.compile("[ '`\\p{L}\\p{M}0-9_.-]{20}.*");
 
     @Autowired
     iApplicationDAO appDAO;
-
 
     @Override
     public Pattern getPatternForLength(int length) {
@@ -42,7 +42,18 @@ public class ApplicationServiceImpl implements iApplicationService {
     }
 
     @Override
-    public boolean addApplication(Application app) {
-        return this.appDAO.persistApplication(app);
+    public Application getApplicationByName(String name) {
+        return this.appDAO.getApplicationByName(name);
+    }
+
+    @Override
+    public int addApplication(Application app) {
+        if(this.appDAO.getApplicationByName(app.getName())!=null){
+            return 1;
+        }
+        if(this.appDAO.persistApplication(app)){
+            return 0;
+        }
+        return 2;
     }
 }
