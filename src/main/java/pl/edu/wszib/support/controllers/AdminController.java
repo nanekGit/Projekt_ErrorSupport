@@ -55,16 +55,15 @@ public class AdminController {
         if(result==0){
             this.sessionObject.setInfo("Successfully added new application");
             return "redirect:/main";
-        }else if(result==1) {
+        }
+        if(result==1) {
             this.sessionObject.setInfo("Application with this name already exists in database");
-            return "redirect:http://localhost:8080/addApp";
         }else if(result==2) {
             this.sessionObject.setInfo("Failed to add new application due to database error");
-            return "redirect:http://localhost:8080/addApp";
         }else{
             this.sessionObject.setInfo("Unknown Error");
-            return "redirect:http://localhost:8080/addApp";
         }
+        return "redirect:http://localhost:8080/addApp";
     }
 
     @RequestMapping(value = "/editError/{id}", method = RequestMethod.GET)

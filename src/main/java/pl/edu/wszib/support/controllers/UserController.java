@@ -95,15 +95,14 @@ public class UserController {
         if(result==0){
             this.sessionObject.setInfo("Successfully registered new account");
             return "redirect:http://localhost:8080/login";
-        }else if(result==1) {
+        }
+        if(result==1) {
             this.sessionObject.setInfo("Account with this login already exists in database");
-            return "redirect:http://localhost:8080/register";
         }else if(result==2) {
             this.sessionObject.setInfo("Failed to register new account due to database error");
-            return "redirect:http://localhost:8080/register";
         }else{
             this.sessionObject.setInfo("Unknown Error");
-            return "redirect:http://localhost:8080/register";
         }
+        return "redirect:http://localhost:8080/register";
     }
 }
